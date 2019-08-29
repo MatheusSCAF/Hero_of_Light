@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject bulletPf;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject bulletPf;
 
     // Update is called once per frame
     void Update()

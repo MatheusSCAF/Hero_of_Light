@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(TalkActivationController))]
+[RequireComponent(typeof(BarraDeVidaController))]
 public class PlayerBehaviour : MonoBehaviour
 {
     private Transform tr;
@@ -9,18 +13,18 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator an;
     private SpriteRenderer sr;
     private TalkActivationController playerTalk;
-    public PowerUpBehaviour powerUp;
-    public Transform verificaChao;
-    public Transform verificaParede;
-    public Transform verificaEscada;
-    public Transform verificaAreaDaInteraçao;
-    public Transform firePoint;
-    public GameObject canonB;
-    public LayerMask solido;
-    public LayerMask plataformaEspeciais;
-    public LayerMask interaçãoDoPlayer;
-
-
+    private BarraDeVidaController barraDeVida;
+    [SerializeField] private PowerUpBehaviour powerUp;
+    [SerializeField] private Transform verificaChao;
+    [SerializeField] private Transform verificaParede;
+    [SerializeField] private Transform verificaEscada;
+    [SerializeField] private Transform verificaAreaDaInteraçao;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject canonB;
+    [SerializeField] private LayerMask solido;
+    [SerializeField] private LayerMask plataformaEspeciais;
+    [SerializeField] private LayerMask interaçãoDoPlayer;
+    
     private bool estaVivo = true;
     private bool estaAndando = false;
     private bool estaNoChao = false;
@@ -30,23 +34,20 @@ public class PlayerBehaviour : MonoBehaviour
     private bool estaNoRaioDaInteraçao = false;
     private bool subindoNaEscada = false;
     private bool viradoParaDireita = true;
-    public bool puloDuplo;
-    public bool wallJump;
-    public bool canonBlaster;
+    private bool puloDuplo;
+    private bool wallJump;
+    private bool canonBlaster;
 
-    public float speed;
-    public float jumpForce;
-    public float velocidadeDeSubida;
-    public float velocidadeDeDecida;
-    public float raioVerificaChao;
-    public float raioVerificaParede;
-    public float raioVerificaEscada;
-    public float raioVerificaAreaDaInteração;
-    public float vidaMax;
-    public float vidaAtual;
-
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float velocidadeDeSubida;
+    [SerializeField] private float velocidadeDeDecida;
+    [SerializeField] private float raioVerificaChao;
+    [SerializeField] private float raioVerificaParede;
+    [SerializeField] private float raioVerificaEscada;
+    [SerializeField] private float raioVerificaAreaDaInteração;
     private float axis;
-    public int pulosExtras = 0;
+    private int pulosExtras = 0;
 
     void Awake()
     {
@@ -55,12 +56,13 @@ public class PlayerBehaviour : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         an = GetComponent<Animator>();
         playerTalk = GetComponent<TalkActivationController>();
+        barraDeVida = GetComponent<BarraDeVidaController>();
     }
     void Update()
     {
         //checagem se esta vivo
 
-        if (vidaAtual == 0)
+        if (barraDeVida.vidaAtual == 0)
         {
             estaVivo = false;
         }
@@ -119,6 +121,7 @@ public class PlayerBehaviour : MonoBehaviour
         { 
             moviment();
             interação();
+            Escada();
         }    
     }
     void OnDrawGizmosSelected()
@@ -140,7 +143,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (col.gameObject.tag == "Inimigo")
         {
-            vidaAtual = vidaAtual - 10;
+            barraDeVida.vidaAtual = barraDeVida.vidaAtual - 10;
         }
         if(col.gameObject.tag == "PowerUp")
         {
@@ -184,34 +187,32 @@ public class PlayerBehaviour : MonoBehaviour
         {
             rb.velocity += Vector2.up * -0.8f;
         }
-
+    }
+    void Escada()
+    {
         //Subir na escada
 
         if (subindoNaEscada)
         {
             if (Input.GetKey(KeyCode.W))
             {
+                rb.simulated = true;
                 rb.velocity = new Vector2(rb.velocity.x,velocidadeDeSubida);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                rb.velocity = new Vector2(rb.velocity.x,velocidadeDeDecida);
+                rb.simulated = true;
+                rb.velocity = new Vector2(rb.velocity.x, velocidadeDeDecida);
             }
-            if (!Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.W))
+            if (!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
             {
-                
+                rb.simulated = false;
             }
             if (estaNaEscada == false)
             {
                 subindoNaEscada = false;
-
             }
-            /*if (estaNaEscada)
-            {
-                pulosExtras = 0;
-            }*/
         }
-
     }
     void interação()
     { 

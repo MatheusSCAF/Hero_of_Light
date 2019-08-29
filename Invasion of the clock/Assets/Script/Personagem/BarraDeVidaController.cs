@@ -5,28 +5,29 @@ using UnityEngine.UI;
 
 public class BarraDeVidaController : MonoBehaviour
 {
-    public Image barraDeVida;
-    public Collider2D sun;
-    
-    public PlayerBehaviour Player;
+    public float vidaMax;
+    public float vidaAtual;
+    [SerializeField] private Image barraDeVida;
+    [SerializeField] private Collider2D sun;
+    [SerializeField] private PlayerBehaviour Player;
 
     void Start()
     {
-        Player.vidaAtual = Player.vidaMax;   
+       vidaAtual = vidaMax;   
     }
     void Update()
     {
-        if (Player.vidaAtual > Player.vidaMax)
+        if (vidaAtual > vidaMax)
         {
-            Player.vidaAtual = Player.vidaMax;
+            vidaAtual = vidaMax;
         }
-        barraDeVida.rectTransform.sizeDelta = new Vector2(Player.vidaAtual / Player.vidaMax * 178.28f,28);
+        barraDeVida.rectTransform.sizeDelta = new Vector2(vidaAtual / vidaMax * 178.28f,28);
 
     }
     public IEnumerator perdevida(float decrementodavida)
     {
-        Player.vidaAtual -= 4f;
-        yield return new WaitWhile(() => Player.vidaAtual < Player.vidaAtual - decrementodavida);
+        vidaAtual -= 4f;
+        yield return new WaitWhile(() => vidaAtual < vidaAtual - decrementodavida);
 
     }
     void OnTriggerStay2D(Collider2D sun)
@@ -40,8 +41,8 @@ public class BarraDeVidaController : MonoBehaviour
 
     public IEnumerator ganhaVida(float acrescentaVida)
     {
-        Player.vidaAtual += 1f;
-        yield return new WaitWhile(() => Player.vidaAtual > Player.vidaAtual + acrescentaVida);
+        vidaAtual += 1f;
+        yield return new WaitWhile(() => vidaAtual > vidaAtual + acrescentaVida);
 
     }
 }

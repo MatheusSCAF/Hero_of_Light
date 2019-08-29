@@ -4,15 +4,11 @@ using UnityEngine;
 
 
 public class PauseController : MonoBehaviour
-{  
-    
-    //Declaração Variavel
-    //Declaração Métodos
-    public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
-    
-    
-    
+{
+
+    [SerializeField] private static bool GameIsPaused = false;
+    [SerializeField] private GameObject pauseMenuUI;
+   
     void Update()
     {
         //Void de checagem
@@ -27,11 +23,8 @@ public class PauseController : MonoBehaviour
             {
                 Pause();
             }
-            
-
         }
        
-
     }
     public void Resume()
     {

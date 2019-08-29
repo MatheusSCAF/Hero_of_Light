@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TalkActivationController : MonoBehaviour
 {
-    public GameObject seta;
-
+    [SerializeField] private GameObject seta;
     public void setaAparecer()
     {
         seta.SetActive(true);
