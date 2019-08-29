@@ -158,7 +158,7 @@ public class PlayerBehaviour : MonoBehaviour
         //Andar
 
         axis = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(axis * speed , rb.velocity.y);
+        rb.velocity = new Vector2(axis * speed *Time.deltaTime, rb.velocity.y);
         estaAndando = Mathf.Abs(axis) > 0;
 
         if (axis > 0 && !viradoParaDireita || axis < 0 && viradoParaDireita)
@@ -182,7 +182,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (estaPulando)
         {
             rb.velocity = new Vector2(rb.velocity.x,0);
-            rb.AddForce(new Vector2(0f,jumpForce));
+            rb.AddForce(new Vector2(0f,jumpForce*Time.deltaTime));
             estaPulando = false;
         }
         if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
@@ -199,12 +199,12 @@ public class PlayerBehaviour : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 rb.simulated = true;
-                rb.velocity = new Vector2(rb.velocity.x,velocidadeDeSubida);
+                rb.velocity = new Vector2(rb.velocity.x,velocidadeDeSubida * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.S))
             {
                 rb.simulated = true;
-                rb.velocity = new Vector2(rb.velocity.x, velocidadeDeDecida);
+                rb.velocity = new Vector2(rb.velocity.x, velocidadeDeDecida * Time.deltaTime);
             }
             if (!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
             {
