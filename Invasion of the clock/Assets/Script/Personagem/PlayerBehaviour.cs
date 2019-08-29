@@ -27,8 +27,8 @@ public class PlayerBehaviour : MonoBehaviour
     
     private bool estaVivo = true;
     private bool estaAndando = false;
-    private bool estaNoChao = false;
-    private bool estaNaParede = false;
+    public bool estaNoChao = false;
+    public bool estaNaParede = false;
     private bool estaNaEscada = false;
     private bool estaPulando = false;
     private bool estaNoRaioDaInteraçao = false;
@@ -38,6 +38,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool wallJump;
     private bool canonBlaster;
 
+    [SerializeField] private Vector2 wJump;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float velocidadeDeSubida;
@@ -70,7 +71,7 @@ public class PlayerBehaviour : MonoBehaviour
         //Checagem se esta no chao ou na parede ou ta na escada ou se ta numa area de interação do player
 
         estaNoChao = Physics2D.OverlapCircle(verificaChao.position,raioVerificaChao,solido);
-        estaNaParede = Physics2D.OverlapCircle(verificaParede.position,raioVerificaParede,solido);
+        estaNaParede = Physics2D.Linecast(transform.position,verificaParede.position,solido);
         estaNaEscada = Physics2D.OverlapCircle(verificaEscada.position,raioVerificaEscada,plataformaEspeciais);
         estaNoRaioDaInteraçao = Physics2D.OverlapCircle(verificaAreaDaInteraçao.position,raioVerificaAreaDaInteração,interaçãoDoPlayer);
 
@@ -118,7 +119,8 @@ public class PlayerBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         if(estaVivo)
-        { 
+        {
+            puloNaParede();
             moviment();
             interação();
             Escada();
@@ -244,6 +246,17 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 playerTalk.setaDesaparecer();
             }
+    }
+    void puloNaParede()
+    {
+        if (estaNaParede && !estaNoChao)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.AddForce(new Vector2(wJump.x*-axis,wJump.y),ForceMode2D.Force);
+                //rb.velocity = new Vector2(wJump.x*-axis,wJump.y);
+            }
+        }
     }
     void Flip()
     {

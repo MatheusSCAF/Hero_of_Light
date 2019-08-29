@@ -401,7 +401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUp: {fileID: 0}
-  barraDeVida: {fileID: 2985873571254215965}
   verificaChao: {fileID: 6166477568680462746}
   verificaParede: {fileID: 6166477568523470652}
   verificaEscada: {fileID: 497550614532252803}
@@ -417,12 +416,15 @@ MonoBehaviour:
   "intera\xE7\xE3oDoPlayer":
     serializedVersion: 2
     m_Bits: 1024
+  estaNoChao: 0
+  estaNaParede: 0
+  wJump: {x: 4500, y: 1500}
   speed: 5
   jumpForce: 1200
   velocidadeDeSubida: 5
   velocidadeDeDecida: -5
   raioVerificaChao: 0.2
-  raioVerificaParede: 0.62
+  raioVerificaParede: 0
   raioVerificaEscada: 0.36
   "raioVerificaAreaDaIntera\xE7\xE3o": 0
 --- !u!114 &5504119401982321610
