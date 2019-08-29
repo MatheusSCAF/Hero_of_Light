@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PauseController : MonoBehaviour
@@ -8,7 +9,9 @@ public class PauseController : MonoBehaviour
 
     [SerializeField] private static bool GameIsPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
-   
+    [SerializeField] private string nomeCena;
+
+
     void Update()
     {
         //Void de checagem
@@ -40,11 +43,11 @@ public class PauseController : MonoBehaviour
     }
     public void LoadMenu()
     {
-        Debug.Log("Go to Menu");
+        SceneManager.LoadScene(nomeCena);
     }
     public void QuitGame()
     {
-        Debug.Log("Quitting Game");
+        Application.Quit();
     }
 
 }
