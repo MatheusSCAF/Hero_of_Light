@@ -5,6 +5,9 @@ using UnityEngine;
 public class PowerUpBehaviour : MonoBehaviour
 {
     public PowerUpsController powerUps;
-
+    public void Destroir()
+    {
+        Destroy(this.gameObject);
+    }
 }
 

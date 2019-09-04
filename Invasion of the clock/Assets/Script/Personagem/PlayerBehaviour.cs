@@ -14,6 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
     private SpriteRenderer sr;
     private TalkActivationController playerTalk;
     private BarraDeVidaController barraDeVida;
+    [SerializeField] private GameObject pUp;
     [SerializeField] private PowerUpBehaviour powerUp;
     [SerializeField] private Transform verificaChao;
     [SerializeField] private Transform verificaParede;
@@ -27,16 +28,16 @@ public class PlayerBehaviour : MonoBehaviour
     
     private bool estaVivo = true;
     private bool estaAndando = false;
-    public bool estaNoChao = false;
-    public bool estaNaParede = false;
+    private bool estaNoChao = false;
+    private bool estaNaParede = false;
     private bool estaNaEscada = false;
     private bool estaPulando = false;
     private bool estaNoRaioDaInteraçao = false;
     private bool subindoNaEscada = false;
     private bool viradoParaDireita = true;
-    private bool puloDuplo;
-    private bool wallJump;
-    private bool canonBlaster;
+    public bool puloDuplo;
+    public bool wallJump;
+    public bool canonBlaster;
 
     [SerializeField] private Vector2 wJump;
     [SerializeField] private float speed;
@@ -199,12 +200,12 @@ public class PlayerBehaviour : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 rb.simulated = true;
-                rb.velocity = new Vector2(rb.velocity.x,velocidadeDeSubida * Time.deltaTime);
+                rb.velocity = new Vector2(rb.velocity.x,velocidadeDeSubida);
             }
             if (Input.GetKey(KeyCode.S))
             {
                 rb.simulated = true;
-                rb.velocity = new Vector2(rb.velocity.x, velocidadeDeDecida * Time.deltaTime);
+                rb.velocity = new Vector2(rb.velocity.x, velocidadeDeDecida);
             }
             if (!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
             {
@@ -234,12 +235,12 @@ public class PlayerBehaviour : MonoBehaviour
                         canonBlaster = true;
                         break; 
                             case PowerUpsController.WallJump:
-                                
+                        wallJump = true;
                         break; 
                     case PowerUpsController.Default:
                         break;
                 }
-                Destroy(powerUp.gameObject);
+                powerUp.Destroir();
             }  
         }
             else if (estaAndando || !estaNoRaioDaInteraçao || !estaNoChao || !estaNoChao && !estaNoRaioDaInteraçao || estaAndando && !estaNoRaioDaInteraçao || estaAndando && !estaNoRaioDaInteraçao && !estaNoChao)
@@ -249,7 +250,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void puloNaParede()
     {
-        if (estaNaParede && !estaNoChao)
+        if (estaNaParede && !estaNoChao && wallJump)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
