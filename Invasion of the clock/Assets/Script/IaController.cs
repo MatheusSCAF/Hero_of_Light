@@ -9,19 +9,22 @@ public class IaController : MonoBehaviour
     private enum EnemyTyper{ Petroleo,Carvao,Default}
     [SerializeField] private EnemyTyper inimigos;
     [SerializeField] private LayerMask solido;
+    [SerializeField] private LayerMask Player;
 
     private Rigidbody2D rbInimigo;
     private Transform trInimigo;
-    private GameObject goInimigo;
-    [SerializeField]private PlayerBehaviour Player;
 
+    [SerializeField] private Transform[] campoDeVisao;
+    [SerializeField] private Transform PlayerTransform;
     [SerializeField] private Transform verificaChao;
 
     [SerializeField] private float speed;
     [SerializeField] private float minX,maxX;
     private float posInicial;
 
-    [SerializeField] private bool bounds = false;
+    public bool[] raioDeEncontro;
+    public bool estaVendo = true;
+    private bool bounds = true;
     private bool viradoParaDireita = true;
     private bool estaNoChao = false;
 
@@ -36,28 +39,61 @@ public class IaController : MonoBehaviour
     private void Update()
     {
         estaNoChao = Physics2D.Linecast(transform.position, verificaChao.position, solido);
-        movimentaçãoInicial();
+        raioDeEncontro[0] = Physics2D.Linecast(transform.position, campoDeVisao[0].position,Player);
+        raioDeEncontro[1] = Physics2D.Linecast(transform.position, campoDeVisao[1].position, Player);
     }
-    public void movimentaçãoInicial()
+    private void FixedUpdate()
     {
+        MovimentaçãoInicial();
+        FollowPlayer();
+    }
+    private void MovimentaçãoInicial()
+    {
+        rbInimigo.velocity = new Vector2(speed * Time.deltaTime, rbInimigo.velocity.y);
         if (!estaNoChao)
         {
             speed = speed * -1;
-            flip();
+            Flip();
         }
-        //bounds em andamento não ative ainda
-        else if (trInimigo.position.x > minX && bounds || trInimigo.position.x < maxX && bounds)
+        if (trInimigo.position.x < minX && bounds || bounds && trInimigo.position.x > maxX)
         {
-           speed = speed * -1;
+            StartCoroutine(Wait());
+            speed = speed * -1;
         }
-        rbInimigo.velocity = new Vector2(speed * Time.deltaTime, rbInimigo.velocity.y);
     }
-    public void flip()
+    private void FollowPlayer()
     {
+        if (raioDeEncontro[0] && estaNoChao || raioDeEncontro[1] && estaNoChao)
+        {
+            if (trInimigo.position.x < PlayerTransform.position.x && estaVendo || trInimigo.position.x < PlayerTransform.position.x && estaVendo)
+            {
+                speed = speed *-1;
+                StartCoroutine(WaitF());
+            }
+        }
+    }
+    private void Flip()
+    {   
         if (speed > 0 && !viradoParaDireita || speed < 0 && viradoParaDireita)
         {
             trInimigo.localScale = new Vector2(-trInimigo.localScale.x, trInimigo.localScale.y);
             viradoParaDireita = !viradoParaDireita;
         }
+    }
+    private IEnumerator Wait()
+    {
+        trInimigo.localScale = new Vector2(-trInimigo.localScale.x, trInimigo.localScale.y);
+        viradoParaDireita = !viradoParaDireita;
+        bounds = false;
+        yield return new WaitForSeconds(0.5f);
+        bounds = true;
+    }
+    private IEnumerator WaitF()
+    {
+        trInimigo.localScale = new Vector2(-trInimigo.localScale.x, trInimigo.localScale.y);
+        viradoParaDireita = !viradoParaDireita;
+        estaVendo = false;
+        yield return new WaitForSeconds(0.5f);
+        estaVendo = true;
     }
 }
