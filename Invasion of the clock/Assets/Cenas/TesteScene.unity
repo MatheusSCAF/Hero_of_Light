@@ -767,19 +767,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430551283130716697, guid: 997a8e13e75c4714ca8f2cc69f7bae4d,
         type: 3}
-      propertyPath: raioDeEncontro.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 430551283130716697, guid: 997a8e13e75c4714ca8f2cc69f7bae4d,
-        type: 3}
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 793197446}
-    - target: {fileID: 430551283130716697, guid: 997a8e13e75c4714ca8f2cc69f7bae4d,
-        type: 3}
-      propertyPath: estaVendo
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 997a8e13e75c4714ca8f2cc69f7bae4d, type: 3}
 --- !u!1001 &1782394686

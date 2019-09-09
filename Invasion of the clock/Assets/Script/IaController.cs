@@ -65,7 +65,7 @@ public class IaController : MonoBehaviour
     {
         if (raioDeEncontro[0] && estaNoChao || raioDeEncontro[1] && estaNoChao)
         {
-            if (trInimigo.position.x < PlayerTransform.position.x && estaVendo || trInimigo.position.x < PlayerTransform.position.x && estaVendo)
+            if (trInimigo.position.x > PlayerTransform.position.x && estaVendo || trInimigo.position.x < PlayerTransform.position.x && estaVendo)
             {
                 speed = speed *-1;
                 StartCoroutine(WaitF());

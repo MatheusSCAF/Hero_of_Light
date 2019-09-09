@@ -199,17 +199,17 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                rb.simulated = true;
+                //rb.simulated = true;
                 rb.velocity = new Vector2(rb.velocity.x,velocidadeDeSubida);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                rb.simulated = true;
+               //rb.simulated = true;
                 rb.velocity = new Vector2(rb.velocity.x, velocidadeDeDecida);
             }
             if (!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
             {
-                rb.simulated = false;
+                //rb.simulated = false;
             }
             if (estaNaEscada == false)
             {
