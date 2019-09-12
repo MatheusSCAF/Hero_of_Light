@@ -7,7 +7,10 @@ using System.Linq;
 
 public class MenuController : MonoBehaviour
 {
+<<<<<<< HEAD
     
+=======
+>>>>>>> b06a9b6ed4fca444212f9f3489aa5aa7e5793c68
     public Button BotaoJogar, BotaoOpcoes, BotaoSair;
     [Space(20)]
     public Slider BarraVolume;
@@ -161,7 +164,11 @@ public class MenuController : MonoBehaviour
         BotaoJogar.gameObject.SetActive(!ativarOP);
         BotaoOpcoes.gameObject.SetActive(!ativarOP);
         BotaoSair.gameObject.SetActive(!ativarOP);
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> b06a9b6ed4fca444212f9f3489aa5aa7e5793c68
        
         //
         textoVol.gameObject.SetActive(ativarOP);
