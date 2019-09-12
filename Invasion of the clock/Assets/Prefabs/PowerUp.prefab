@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUps: 0
+  powerUpTr: {fileID: 0}

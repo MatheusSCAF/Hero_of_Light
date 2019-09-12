@@ -14,8 +14,8 @@ public class PlayerBehaviour : MonoBehaviour
     private SpriteRenderer sr;
     private TalkActivationController playerTalk;
     private BarraDeVidaController barraDeVida;
+    [SerializeField] private PowerUpBehaviour[] powerUp;
     [SerializeField] private GameObject pUp;
-    [SerializeField] private PowerUpBehaviour powerUp;
     [SerializeField] private Transform verificaChao;
     [SerializeField] private Transform verificaParede;
     [SerializeField] private Transform verificaEscada;
@@ -25,7 +25,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private LayerMask solido;
     [SerializeField] private LayerMask plataformaEspeciais;
     [SerializeField] private LayerMask interaçãoDoPlayer;
-    
+
     private bool estaVivo = true;
     private bool estaAndando = false;
     private bool estaNoChao = false;
@@ -35,6 +35,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool estaNoRaioDaInteraçao = false;
     private bool subindoNaEscada = false;
     private bool viradoParaDireita = true;
+    private bool estaNoAr;
     public bool puloDuplo;
     public bool wallJump;
     public bool canonBlaster;
@@ -48,6 +49,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float raioVerificaParede;
     [SerializeField] private float raioVerificaEscada;
     [SerializeField] private float raioVerificaAreaDaInteração;
+    [SerializeField] private float x,y,z;
     private float axis;
     private int pulosExtras = 0;
 
@@ -75,7 +77,10 @@ public class PlayerBehaviour : MonoBehaviour
         estaNaParede = Physics2D.Linecast(transform.position,verificaParede.position,solido);
         estaNaEscada = Physics2D.OverlapCircle(verificaEscada.position,raioVerificaEscada,plataformaEspeciais);
         estaNoRaioDaInteraçao = Physics2D.OverlapCircle(verificaAreaDaInteraçao.position,raioVerificaAreaDaInteração,interaçãoDoPlayer);
-
+        if (!estaNoAr & estaNoChao)
+        {
+            estaNoAr = true;
+        }
         //Checagem se esta pulando
         if (!puloDuplo)
         {
@@ -104,11 +109,16 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 pulosExtras = 1;
             }
+            else if (!estaNoChao && estaNoAr)
+            {
+                pulosExtras = 0;
+                estaNoAr = false;
+            }
             else if (!estaNoChao && estaPulando)
             {
-                pulosExtras = -1 ;
+                pulosExtras = -1;
             }
-        }
+            }
         //Checagem se vai subir na escada
 
         if (estaNaEscada && Input.GetKey(KeyCode.W) || estaNaEscada && Input.GetKey(KeyCode.S))
@@ -121,9 +131,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(estaVivo)
         {
-            puloNaParede();
             moviment();
-            interação();
+            puloNaParede();
             Escada();
         }    
     }
@@ -142,16 +151,9 @@ public class PlayerBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(verificaAreaDaInteraçao.position,raioVerificaAreaDaInteração);
 
     }
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Inimigo")
-        {
-            barraDeVida.vidaAtual = barraDeVida.vidaAtual - 10;
-        }
-        if(col.gameObject.tag == "PowerUp")
-        {
-           // col.gameObject = powerUp.gameObject;
-        }
+            interação(col);
     }
     void moviment()
     {
@@ -217,31 +219,68 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
     }
-    void interação()
+    void interação(Collider2D col)
     { 
         if (!estaAndando && estaNoRaioDaInteraçao && estaNoChao)
         {
                 playerTalk.setaAparecer();
             if (Input.GetKeyDown(KeyCode.W))
             {
-                switch (powerUp.powerUps)
+                if (col.gameObject.tag == "pD")
                 {
-                    case PowerUpsController.PuloDuplo:
+                    if (powerUp[0].powerUps == PowerUpsController.PuloDuplo)
+                    {
                         pulosExtras = 1;
                         puloDuplo = true;
-                        break;
-                    case PowerUpsController.CanomBlaster:
+                    }
+                    else if (powerUp[0].powerUps == PowerUpsController.CanomBlaster)
+                    {
                         canonB.SetActive(true);
                         canonBlaster = true;
-                        break; 
-                            case PowerUpsController.WallJump:
+                    }
+                    else if (powerUp[0].powerUps == PowerUpsController.CanomBlaster)
+                    {
                         wallJump = true;
-                        break; 
-                    case PowerUpsController.Default:
-                        break;
+                    }
+                    powerUp[0].Destroir();
                 }
-                powerUp.Destroir();
-            }  
+                if (col.gameObject.tag == "wJ")
+                {
+                    if (powerUp[1].powerUps == PowerUpsController.PuloDuplo)
+                    {
+                        pulosExtras = 1;
+                        puloDuplo = true;
+                    }
+                    else if (powerUp[1].powerUps == PowerUpsController.CanomBlaster)
+                    {
+                        canonB.SetActive(true);
+                        canonBlaster = true;
+                    }
+                    else if (powerUp[1].powerUps == PowerUpsController.CanomBlaster)
+                    {
+                        wallJump = true;
+                    }
+                    powerUp[1].Destroir();
+                }
+                if (col.gameObject.tag == "cB")
+                {
+                    if (powerUp[3].powerUps == PowerUpsController.PuloDuplo)
+                    {
+                        pulosExtras = 1;
+                        puloDuplo = true;
+                    }
+                    else if (powerUp[3].powerUps == PowerUpsController.CanomBlaster)
+                    {
+                        canonB.SetActive(true);
+                        canonBlaster = true;
+                    }
+                    else if (powerUp[3].powerUps == PowerUpsController.CanomBlaster)
+                    {
+                        wallJump = true;
+                    }
+                    powerUp[3].Destroir();
+                }
+            }
         }
             else if (estaAndando || !estaNoRaioDaInteraçao || !estaNoChao || !estaNoChao && !estaNoRaioDaInteraçao || estaAndando && !estaNoRaioDaInteraçao || estaAndando && !estaNoRaioDaInteraçao && !estaNoChao)
             {
@@ -252,10 +291,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (estaNaParede && !estaNoChao && wallJump)
         {
+            pulosExtras = -1;
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                rb.AddForce(new Vector2(wJump.x*-axis,wJump.y),ForceMode2D.Force);
-                //rb.velocity = new Vector2(wJump.x*-axis,wJump.y);
+                rb.velocity = new Vector2(wJump.x*-axis * Time.deltaTime, wJump.y * Time.deltaTime);
+                pulosExtras = 0;
             }
         }
     }
