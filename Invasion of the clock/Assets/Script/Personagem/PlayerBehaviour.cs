@@ -8,12 +8,15 @@ using UnityEngine;
 [RequireComponent(typeof(BarraDeVidaController))]
 public class PlayerBehaviour : MonoBehaviour
 {
+    [SerializeField] private Transform gunE;
+    [SerializeField] private Transform gunD;
     private Transform tr;
     private Rigidbody2D rb;
     private Animator an;
     private SpriteRenderer sr;
     private TalkActivationController playerTalk;
     private BarraDeVidaController barraDeVida;
+    private BarraDeEnergia barraDeEnergia;
     [SerializeField] private GameObject pUp;
     [SerializeField] private PowerUpBehaviour powerUp;
     [SerializeField] private Transform verificaChao;
@@ -261,9 +264,19 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Flip()
     {
-        tr.localScale = new Vector2(-tr.localScale.x,tr.localScale.y);
-        //firePoint.localScale = new Vector2(-tr.localScale.x, -tr.localScale.y);
+
+        //tr.localScale = new Vector2(-tr.localScale.x,tr.localScale.y);
+       
         viradoParaDireita = !viradoParaDireita;
-        //sr.flipX = !sr.flipX;
+        sr.flipX = !sr.flipX;
+        if (viradoParaDireita)
+        {
+            canonB.transform.position = gunE.position;
+        }
+        if (!viradoParaDireita)
+        {
+            canonB.transform.position = gunD.position;
+        }
+        
     }    
 }
