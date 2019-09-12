@@ -16,11 +16,8 @@ public class PlayerBehaviour : MonoBehaviour
     private SpriteRenderer sr;
     private TalkActivationController playerTalk;
     private BarraDeVidaController barraDeVida;
-<<<<<<< HEAD
     private BarraDeEnergia barraDeEnergia;
-=======
     [SerializeField] private PowerUpBehaviour[] powerUp;
->>>>>>> ad2f4985cf68daec7895ceaa5194418cf2b3f5e2
     [SerializeField] private GameObject pUp;
     [SerializeField] private Transform verificaChao;
     [SerializeField] private Transform verificaParede;

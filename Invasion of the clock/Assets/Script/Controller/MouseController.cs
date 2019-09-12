@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
-<<<<<<< HEAD
     private
    
-=======
->>>>>>> ad2f4985cf68daec7895ceaa5194418cf2b3f5e2
     void Update()
     {
         MouseControler();
@@ -22,7 +19,6 @@ public class MouseController : MonoBehaviour
             mousePosition.x - transform.position.x,
             mousePosition.y - transform.position.y
             );
-<<<<<<< HEAD
         Debug.Log(mousePosition.x);
         Debug.Log(mousePosition.y);
         Debug.Log("--");
@@ -30,13 +26,10 @@ public class MouseController : MonoBehaviour
 
         transform.right = direcao;
 
-        //Vector3 mouseRotate = new Vector3()
-=======
 
 
         transform.right  = direcao;
 
->>>>>>> ad2f4985cf68daec7895ceaa5194418cf2b3f5e2
     }
     
 }
