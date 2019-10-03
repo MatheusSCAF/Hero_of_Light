@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUps: 0
+  player: {fileID: 6166477568914153094, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28, type: 3}

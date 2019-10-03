@@ -14,9 +14,8 @@ public class IaController : MonoBehaviour
     private Rigidbody2D rbInimigo;
     private Transform trInimigo;
 
-    [SerializeField] private Rigidbody2D PlayerRB;
     [SerializeField] private Transform[] campoDeVisao;
-    [SerializeField] private Transform PlayerTr;
+    [SerializeField] private Transform PlayerTransform;
     [SerializeField] private Transform verificaChao;
 
     [SerializeField] private float speed;
@@ -24,7 +23,7 @@ public class IaController : MonoBehaviour
     private float posInicial;
 
     public bool[] raioDeEncontro;
-    public bool estaVendo = false;
+    public bool estaVendo = true;
     private bool bounds = true;
     private bool viradoParaDireita = true;
     private bool estaNoChao = false;
@@ -45,10 +44,7 @@ public class IaController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(!estaVendo)
-        {
-            MovimentaçãoInicial();
-        }
+        MovimentaçãoInicial();
         FollowPlayer();
     }
     private void MovimentaçãoInicial()
@@ -69,15 +65,11 @@ public class IaController : MonoBehaviour
     {
         if (raioDeEncontro[0] && estaNoChao || raioDeEncontro[1] && estaNoChao)
         {
-            estaVendo = true;
-            if (trInimigo.position.x >PlayerTr.position.x && estaVendo && estaNoChao || trInimigo.position.x < PlayerTr.position.x && estaVendo && estaNoChao)
+            if (trInimigo.position.x > PlayerTransform.position.x && estaVendo || trInimigo.position.x < PlayerTransform.position.x && estaVendo)
             {
-                trInimigo.position = Vector2.MoveTowards(transform.position, PlayerTr.position, speed * Time.deltaTime);
+                speed = speed *-1;
+                StartCoroutine(WaitF());
             }
-        }
-        else
-        {
-            estaVendo = false;
         }
     }
     private void Flip()

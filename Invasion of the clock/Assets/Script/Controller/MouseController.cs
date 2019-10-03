@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
-    private
-   
     void Update()
     {
         MouseControler();
@@ -19,13 +17,6 @@ public class MouseController : MonoBehaviour
             mousePosition.x - transform.position.x,
             mousePosition.y - transform.position.y
             );
-        Debug.Log(mousePosition.x);
-        Debug.Log(mousePosition.y);
-        Debug.Log("--");
-
-
-        transform.right = direcao;
-
 
 
         transform.right  = direcao;

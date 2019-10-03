@@ -5,9 +5,29 @@ using UnityEngine;
 public class PowerUpBehaviour : MonoBehaviour
 {
     public PowerUpsController powerUps;
-    public void Destroir()
+    public GameObject player;
+    public PlayerBehaviour pBehaviour;
+
+    void OnTriggerEnter2D(Collider2D col)
     {
-        Destroy(this.gameObject);
+        if (col.tag == "Player")
+        {
+            switch (powerUps)
+            {
+                case PowerUpsController.PuloDuplo:
+                    pBehaviour.PowerUp(true, false, false);
+                    break;
+                case PowerUpsController.WallJump:
+                    pBehaviour.PowerUp(false, true, false);
+                    break;
+                case PowerUpsController.CanomBlaster:
+                    pBehaviour.PowerUp(false, false, true);
+                    break;
+                case PowerUpsController.Default:
+                    break;
+            }
+            Destroy(this.gameObject);
+        }  
     }
 }
 

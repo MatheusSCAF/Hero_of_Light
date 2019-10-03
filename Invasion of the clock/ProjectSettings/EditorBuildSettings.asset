@@ -5,15 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/94272ef35489a8848b20a801be659dd9
-    guid: 94272ef35489a8848b20a801be659dd9
   - enabled: 1
     path: Assets/Cenas/Menu.unity
-    guid: 1c7b2bb13eb3e234690428580e3f064e
-  - enabled: 1
-    path: Assets/Cenas/Loading.unity
-    guid: 140e435bf14e4934f99845e9e150bc6d
+    guid: 94272ef35489a8848b20a801be659dd9
   - enabled: 1
     path: Assets/Cenas/Teste World.unity
     guid: 5af770761529ccc4ab9e1212f693b8c1
