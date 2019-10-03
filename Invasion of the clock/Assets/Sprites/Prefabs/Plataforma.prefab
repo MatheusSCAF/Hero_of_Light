@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6337314299860214168}
   - component: {fileID: 6337314299860214169}
   m_Layer: 8
-  m_Name: branco (1)
+  m_Name: Plataforma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,11 @@ Transform:
   m_GameObject: {fileID: 6337314299860214172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.14697051, y: 1.4136378, z: 0}
+<<<<<<< HEAD:Invasion of the clock/Assets/Prefabs/branco (1).prefab
   m_LocalScale: {x: 88.191475, y: 58.627644, z: 1}
+=======
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> 38a6f193ed58c2513c825c7bfac2dcda7b0c103e:Invasion of the clock/Assets/Sprites/Prefabs/Plataforma.prefab
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
