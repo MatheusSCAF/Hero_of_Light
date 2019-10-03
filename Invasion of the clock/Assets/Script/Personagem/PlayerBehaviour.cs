@@ -262,7 +262,6 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void PowerUp(bool pD, bool wJ, bool cB)
     {
-        //void referenciada no codigo do powerUp, para ver qual power up foi ativado
         if (pD == true)
         {
             puloDuplo = true;
