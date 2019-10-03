@@ -2873,8 +2873,13 @@ PrefabInstance:
     - target: {fileID: 4707080576584576370, guid: 34387792816a8f341a787b775f1d1948,
         type: 3}
       propertyPath: powerUps
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4707080576584576370, guid: 34387792816a8f341a787b775f1d1948,
+        type: 3}
+      propertyPath: pBehaviour
+      value: 
+      objectReference: {fileID: 1669000125}
     - target: {fileID: 4707080576584576371, guid: 34387792816a8f341a787b775f1d1948,
         type: 3}
       propertyPath: m_Name
