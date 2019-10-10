@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 266658921}
   - component: {fileID: 266658923}
   - component: {fileID: 266658922}
-  m_Layer: 5
+  m_Layer: 30
   m_Name: Fundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 773576845}
   - component: {fileID: 773576844}
   - component: {fileID: 773576843}
-  m_Layer: 5
+  m_Layer: 30
   m_Name: Seta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 850350191}
   - component: {fileID: 850350193}
   - component: {fileID: 850350192}
-  m_Layer: 5
+  m_Layer: 30
   m_Name: Barra de vida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 1734736702}
   - component: {fileID: 1734736704}
   - component: {fileID: 1734736703}
-  m_Layer: 5
+  m_Layer: 30
   m_Name: Borda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 497550613642897001}
   - component: {fileID: 497550613642897002}
   - component: {fileID: 497550613642897004}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497550614532252803}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Verifica Escada
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497550614880193129}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -501,7 +501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8929435322404630402}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: "Verifica Intera\xE7\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
@@ -531,7 +531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6166477568523470652}
-  m_Layer: 8
+  m_Layer: 30
   m_Name: Verifica Parede
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -561,7 +561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6166477568680462746}
-  m_Layer: 8
+  m_Layer: 30
   m_Name: "Verifica Ch\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 6166477568914153149}
   - component: {fileID: 5504119401982321610}
   - component: {fileID: 2985873571254215965}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -722,8 +722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3890c6d59010a4281aaa5f9034faa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pUp: {fileID: 4707080576584576371, guid: 34387792816a8f341a787b775f1d1948, type: 3}
-  powerUp: {fileID: 4707080576584576370, guid: 34387792816a8f341a787b775f1d1948, type: 3}
   verificaChao: {fileID: 6166477568680462746}
   verificaParede: {fileID: 6166477568523470652}
   verificaEscada: {fileID: 497550614532252803}
@@ -739,8 +737,9 @@ MonoBehaviour:
   "intera\xE7\xE3oDoPlayer":
     serializedVersion: 2
     m_Bits: 1024
-  estaNoChao: 0
-  estaNaParede: 0
+  puloDuplo: 0
+  wallJump: 0
+  canonBlaster: 0
   wJump: {x: 4500, y: 1500}
   speed: 10
   jumpForce: 54000
@@ -792,7 +791,7 @@ GameObject:
   - component: {fileID: 930194233791322849}
   - component: {fileID: 4051980779203993703}
   - component: {fileID: 3224022212927781114}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: PlayerCanva
   m_TagString: Untagged
   m_Icon: {fileID: 0}
