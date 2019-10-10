@@ -8,6 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(BarraDeVidaController))]
 public class PlayerBehaviour : MonoBehaviour
 {
+    private Transform myTransform;
     private Transform tr;
     private Rigidbody2D rb;
     private Animator an;
@@ -54,6 +55,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Awake()
     {
+        myTransform = transform;
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
@@ -281,5 +283,19 @@ public class PlayerBehaviour : MonoBehaviour
         //firePoint.localScale = new Vector2(-tr.localScale.x, -tr.localScale.y);
         viradoParaDireita = !viradoParaDireita;
         //sr.flipX = !sr.flipX;
-    }    
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "PlataformaMovel")
+        {
+            myTransform.parent = collision.transform;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "PlataformaMovel")
+        {
+            
+        }
+    }
 }
