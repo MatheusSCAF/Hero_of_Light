@@ -37,7 +37,7 @@ public class areasInvisiveisController : MonoBehaviour
     }
     IEnumerator FadeIn()
     {
-        for (float f = 0.05f; f <= 1f; f += 0.05f)
+        for (float f = 0.05f; f <= 1.05f; f += 0.05f)
         {
             Color c = render.material.color;
             c.a = f;

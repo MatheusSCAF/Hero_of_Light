@@ -10,6 +10,7 @@ public class IaController : MonoBehaviour
     [SerializeField] private EnemyTyper inimigos;
     [SerializeField] private LayerMask solido;
     [SerializeField] private LayerMask Player;
+    private Vector3 velocity;
 
     private Rigidbody2D rbInimigo;
     private Transform trInimigo;
@@ -21,9 +22,13 @@ public class IaController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float minX,maxX;
     private float posInicial;
+    [SerializeField]
+    private float delay;
+    public float raioVerificaChao;
 
     public bool[] raioDeEncontro;
     public bool estaVendo = true;
+    [SerializeField]
     private bool bounds = true;
     private bool viradoParaDireita = true;
     private bool estaNoChao = false;
@@ -38,24 +43,24 @@ public class IaController : MonoBehaviour
     }
     private void Update()
     {
-        estaNoChao = Physics2D.Linecast(transform.position, verificaChao.position, solido);
+        estaNoChao = Physics2D.Linecast(transform.position,verificaChao.position,solido);
         raioDeEncontro[0] = Physics2D.Linecast(transform.position, campoDeVisao[0].position,Player);
         raioDeEncontro[1] = Physics2D.Linecast(transform.position, campoDeVisao[1].position, Player);
     }
     private void FixedUpdate()
     {
-        MovimentaçãoInicial();
+        //MovimentaçãoInicial();
         FollowPlayer();
     }
     private void MovimentaçãoInicial()
     {
-        rbInimigo.velocity = new Vector2(speed * Time.deltaTime, rbInimigo.velocity.y);
+        rbInimigo.velocity = new Vector2(speed, rbInimigo.velocity.y);
         if (!estaNoChao)
         {
             speed = speed * -1;
             Flip();
         }
-        if (trInimigo.position.x < minX && bounds || bounds && trInimigo.position.x > maxX)
+        if (trInimigo.position.x > minX && bounds || bounds && trInimigo.position.x < maxX)
         {
             StartCoroutine(Wait());
             speed = speed * -1;
@@ -63,13 +68,21 @@ public class IaController : MonoBehaviour
     }
     private void FollowPlayer()
     {
-        if (raioDeEncontro[0] && estaNoChao || raioDeEncontro[1] && estaNoChao)
+        if (raioDeEncontro[1] && estaNoChao)
+        {
+            Flip();
+            speed = speed * -1;
+        }
+        else if (raioDeEncontro[0] && estaNoChao)
         {
             if (trInimigo.position.x > PlayerTransform.position.x && estaVendo || trInimigo.position.x < PlayerTransform.position.x && estaVendo)
             {
-                speed = speed *-1;
-                StartCoroutine(WaitF());
+
             }
+        }
+        else if (!estaNoChao)
+        {
+            speed *= -1;
         }
     }
     private void Flip()
