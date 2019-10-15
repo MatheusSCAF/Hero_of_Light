@@ -9,6 +9,8 @@ TagManager:
   - PowerUp
   - Espetos
   - GM
+  - PlataformaMovel
+  - Bala
   layers:
   - Default
   - TransparentFX

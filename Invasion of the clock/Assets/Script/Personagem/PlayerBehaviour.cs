@@ -63,6 +63,7 @@ public class PlayerBehaviour : MonoBehaviour
         playerTalk = GetComponent<TalkActivationController>();
         barraDeVida = GetComponent<BarraDeVidaController>();
     }
+
     void Update()
     {
         //checagem se esta vivo
