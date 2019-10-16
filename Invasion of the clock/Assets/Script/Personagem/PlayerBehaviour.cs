@@ -296,7 +296,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (collision.transform.tag == "PlataformaMovel")
         {
-            
+            myTransform.parent = null;
         }
     }
 }
