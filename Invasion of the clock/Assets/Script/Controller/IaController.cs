@@ -6,8 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class IaController : MonoBehaviour
 {
-    private enum EnemyTyper{ Petroleo,Carvao,Default}
-    [SerializeField] private EnemyTyper inimigos;
+    private enum EnemyType{Voador,Terrestre};
     [SerializeField] private LayerMask solido;
     [SerializeField] private LayerMask Player;
     private Vector3 velocity;
@@ -15,9 +14,10 @@ public class IaController : MonoBehaviour
     private Rigidbody2D rbInimigo;
     private Transform trInimigo;
 
-    [SerializeField] private Transform[] campoDeVisao;
-    [SerializeField] private Transform PlayerTransform;
     [SerializeField] private Transform verificaChao;
+    [SerializeField] private Transform areaDeAtaqueTerrestre;
+    [SerializeField] private Transform PlayerTransform;
+
 
     [SerializeField] private float speed;
     [SerializeField] private float minX,maxX;
@@ -26,12 +26,11 @@ public class IaController : MonoBehaviour
     private float delay;
     public float raioVerificaChao;
 
-    public bool[] raioDeEncontro;
-    public bool estaVendo = true;
-    [SerializeField]
-    private bool bounds = true;
+    [SerializeField] private bool bounds = true;
+    private bool atacar = true;
     private bool viradoParaDireita = true;
-    private bool estaNoChao = false;
+    private bool raioDeAtaque = false;
+    [SerializeField] private bool estaNoChao = false;
 
     private void Awake()
     {
@@ -44,15 +43,14 @@ public class IaController : MonoBehaviour
     private void Update()
     {
         estaNoChao = Physics2D.Linecast(transform.position,verificaChao.position,solido);
-        raioDeEncontro[0] = Physics2D.Linecast(transform.position, campoDeVisao[0].position,Player);
-        raioDeEncontro[1] = Physics2D.Linecast(transform.position, campoDeVisao[1].position, Player);
+        raioDeAtaque = Physics2D.Linecast(transform.position, areaDeAtaqueTerrestre.position, Player);
     }
     private void FixedUpdate()
     {
-        //MovimentaçãoInicial();
-        FollowPlayer();
+        MovimentaçãoTerreste();
+        AtaqueAoPlayerTerrestre();
     }
-    private void MovimentaçãoInicial()
+    private void MovimentaçãoTerreste()
     {
         rbInimigo.velocity = new Vector2(speed, rbInimigo.velocity.y);
         if (!estaNoChao)
@@ -60,30 +58,23 @@ public class IaController : MonoBehaviour
             speed = speed * -1;
             Flip();
         }
-        if (trInimigo.position.x > minX && bounds || bounds && trInimigo.position.x < maxX)
+        if (trInimigo.position.x < minX && bounds || bounds && trInimigo.position.x > maxX)
         {
+            Flip();
             StartCoroutine(Wait());
             speed = speed * -1;
         }
     }
-    private void FollowPlayer()
+    private void AtaqueAoPlayerTerrestre()
     {
-        if (raioDeEncontro[1] && estaNoChao)
-        {
-            Flip();
-            speed = speed * -1;
-        }
-        else if (raioDeEncontro[0] && estaNoChao)
-        {
-            if (trInimigo.position.x > PlayerTransform.position.x && estaVendo || trInimigo.position.x < PlayerTransform.position.x && estaVendo)
+            if (raioDeAtaque)
             {
-
+                if (atacar)
+                {
+                    Debug.Log("atacarrr cornos");
+                    StartCoroutine(Ataque());
+                }
             }
-        }
-        else if (!estaNoChao)
-        {
-            speed *= -1;
-        }
     }
     private void Flip()
     {   
@@ -95,18 +86,14 @@ public class IaController : MonoBehaviour
     }
     private IEnumerator Wait()
     {
-        trInimigo.localScale = new Vector2(-trInimigo.localScale.x, trInimigo.localScale.y);
-        viradoParaDireita = !viradoParaDireita;
         bounds = false;
         yield return new WaitForSeconds(0.5f);
         bounds = true;
     }
-    private IEnumerator WaitF()
+    private IEnumerator Ataque()
     {
-        trInimigo.localScale = new Vector2(-trInimigo.localScale.x, trInimigo.localScale.y);
-        viradoParaDireita = !viradoParaDireita;
-        estaVendo = false;
-        yield return new WaitForSeconds(0.5f);
-        estaVendo = true;
+        atacar = false;
+        yield return new WaitForSeconds(0.1f);
+        atacar = true;
     }
 }
