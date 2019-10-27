@@ -11,6 +11,7 @@ TagManager:
   - GM
   - PlataformaMovel
   - Bala
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -43,7 +44,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Enemy
   m_SortingLayers:
   - name: Default
     uniqueID: 0
