@@ -76,17 +76,27 @@ public class AiController : MonoBehaviour
 
         if (areaCV[0] & estaNoChao || areaCV[1] & estaNoChao)
         {
-            vetor = Vector2.MoveTowards(transform.position, alvo.position, speed * Time.deltaTime);
+            vetor = Vector2.MoveTowards(transform.position, alvo.position, Mathf.Abs(speed) * Time.deltaTime);
             transform.position = new Vector2(vetor.x, transform.position.y);
+            if (transform.position.x > alvo.position.x && viradoParaDireita || transform.position.x < alvo.position.x && !viradoParaDireita)
+            {
+                speed *= -1;
+                Flip();
+            }
         }
         else if (!estaNoChao || !areaCV[0] || !areaCV[1])
         {
-            vetor = Vector2.MoveTowards(transform.position, posicaoInicial.position, speed * Time.deltaTime);
+            vetor = Vector2.MoveTowards(transform.position, posicaoInicial.position, Mathf.Abs(speed) * Time.deltaTime);
             transform.position = new Vector2(vetor.x,transform.position.y);
             if (startPosision)
             {
                 encontro = !encontro;
                 bounds = true;
+            }
+            else if (transform.position.x > posicaoInicial.position.x && viradoParaDireita || transform.position.x < posicaoInicial.position.x && !viradoParaDireita)
+            {
+                speed *= -1;
+                Flip();
             }
         }
     }
