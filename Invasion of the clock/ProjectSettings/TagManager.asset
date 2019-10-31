@@ -12,6 +12,7 @@ TagManager:
   - PlataformaMovel
   - Bala
   - Enemy
+  - Mana
   layers:
   - Default
   - TransparentFX

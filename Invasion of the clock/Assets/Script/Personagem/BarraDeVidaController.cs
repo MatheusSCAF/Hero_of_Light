@@ -22,13 +22,10 @@ public class BarraDeVidaController : MonoBehaviour
             vidaAtual = vidaMax;
         }
         barraDeVida.rectTransform.sizeDelta = new Vector2(vidaAtual / vidaMax * 178.28f,28);
-
-    }
-    public IEnumerator perdevida(float decrementodavida)
-    {
-        vidaAtual -= 4f;
-        yield return new WaitWhile(() => vidaAtual < vidaAtual - decrementodavida);
-
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            vidaAtual -= 10f;
+        }
     }
     void OnTriggerStay2D(Collider2D sun)
     {
@@ -38,11 +35,11 @@ public class BarraDeVidaController : MonoBehaviour
         }
        
     }
+    
 
     public IEnumerator ganhaVida(float acrescentaVida)
     {
-        vidaAtual += 1f;
-        yield return new WaitWhile(() => vidaAtual > vidaAtual + acrescentaVida);
-
+        vidaAtual += 0.5f;
+        yield return new WaitWhile(() => vidaAtual < vidaAtual + acrescentaVida);
     }
 }

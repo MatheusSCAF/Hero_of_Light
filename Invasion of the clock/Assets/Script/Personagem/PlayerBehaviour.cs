@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool estaPulando = false;
     private bool estaNoRaioDaInteraçao = false;
     private bool subindoNaEscada = false;
-    private bool viradoParaDireita = true;
+    public bool viradoParaDireita = true;
     [SerializeField]
     private bool puloDuplo;
     [SerializeField]
@@ -281,7 +281,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Flip()
     {
         tr.localScale = new Vector2(-tr.localScale.x,tr.localScale.y);
-        //firePoint.localScale = new Vector2(-tr.localScale.x, -tr.localScale.y);
+        firePoint.localScale = new Vector2(-tr.localScale.x, -tr.localScale.y);
         viradoParaDireita = !viradoParaDireita;
         //sr.flipX = !sr.flipX;
     }
