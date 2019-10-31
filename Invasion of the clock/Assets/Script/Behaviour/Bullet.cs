@@ -11,18 +11,19 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         pH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>();
-    }
-    void Update()
-    {
-        rb.velocity = transform.right * speed;
         if (pH.viradoParaDireita)
         {
             speed = Mathf.Abs(speed);
         }
         else if (!pH.viradoParaDireita)
         {
-            speed *= -1; 
+            speed *= -1;
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
+    }
+    void Update()
+    {
+        rb.velocity = transform.right * speed;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

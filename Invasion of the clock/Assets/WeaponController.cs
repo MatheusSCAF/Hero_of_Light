@@ -7,7 +7,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform shotPoint;
 
-    [SerializeField] private float offSet;
+    [SerializeField] private float offset;
     [SerializeField] private float startTimeBtwShots;
     private float timeBtwShots;
 
