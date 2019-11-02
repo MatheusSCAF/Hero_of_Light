@@ -93,12 +93,12 @@ public class healthManaBarController : MonoBehaviour
     }
     public IEnumerator recoverLife(float lifeRecover)
     {
-        health += 0.5f;
+        health += 2f;
         yield return new WaitWhile(() => health < health + lifeRecover);
     }
     public IEnumerator recoverMana(float manaRecover)
     {
-        health += 0.5f;
+        mana += 2f;
         yield return new WaitWhile(() => mana < mana + manaRecover);
     }
 
@@ -106,13 +106,13 @@ public class healthManaBarController : MonoBehaviour
     {
         if (sun.gameObject.tag == "Sun")
         {
-            if (health >= maxHealth)
+            if (health <= maxHealth)
             {
                 StartCoroutine(recoverLife(10f));
             }
-            else if (mana >= maxMana)
+            if (mana <= maxMana)
             {
-
+                StartCoroutine(recoverMana(10f));
             }
         }
     }

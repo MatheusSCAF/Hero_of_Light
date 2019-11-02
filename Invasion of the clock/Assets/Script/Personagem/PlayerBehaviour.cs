@@ -13,7 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator an;
     private SpriteRenderer sr;
     private TalkActivationController playerTalk;
-    private BarraDeVidaController barraDeVida;
+    private healthManaBarController healthEmana;
     [SerializeField] private Transform verificaChao;
     [SerializeField] private Transform verificaParede;
     [SerializeField] private Transform verificaEscada;
@@ -60,14 +60,14 @@ public class PlayerBehaviour : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         an = GetComponent<Animator>();
         playerTalk = GetComponent<TalkActivationController>();
-        barraDeVida = GetComponent<BarraDeVidaController>();
+        healthEmana = GetComponent<healthManaBarController>();
     }
 
     void Update()
     {
         //checagem se esta vivo
 
-        if (barraDeVida.vidaAtual == 0)
+        if (healthEmana.gameOver == true)
         {
             estaVivo = false;
         }
@@ -144,17 +144,6 @@ public class PlayerBehaviour : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(verificaAreaDaInteraçao.position,raioVerificaAreaDaInteração);
 
-    }
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Inimigo")
-        {
-            barraDeVida.vidaAtual = barraDeVida.vidaAtual - 10;
-        }
-        if(col.gameObject.tag == "PowerUp")
-        {
-           // col.gameObject = powerUp.gameObject;
-        }
     }
     void moviment()
     {

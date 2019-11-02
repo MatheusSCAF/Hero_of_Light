@@ -15,11 +15,11 @@ public class projectileBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        transform.Translate(transform.right * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
     private void DestroyProjectile()
     {
-        //Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        Instantiate(destroyEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
