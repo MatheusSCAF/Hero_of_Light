@@ -6193,14 +6193,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6118455098940304362, guid: b751eec8d074ca64592b1ac0986b142b,
+    - target: {fileID: 6118455098164539509, guid: b751eec8d074ca64592b1ac0986b142b,
         type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6118455098940304362, guid: b751eec8d074ca64592b1ac0986b142b,
-        type: 3}
-      propertyPath: m_Lens.OrthographicSize
+      propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6118455098940304341, guid: b751eec8d074ca64592b1ac0986b142b,
@@ -6213,9 +6208,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6118455098164539509, guid: b751eec8d074ca64592b1ac0986b142b,
+    - target: {fileID: 6118455098940304362, guid: b751eec8d074ca64592b1ac0986b142b,
         type: 3}
-      propertyPath: orthographic size
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6118455098940304362, guid: b751eec8d074ca64592b1ac0986b142b,
+        type: 3}
+      propertyPath: m_Lens.OrthographicSize
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6286,6 +6286,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 977094953, guid: 5cb9f4aaef3b16a4db33ef1a29b687e8, type: 3}
+      propertyPath: offset
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb9f4aaef3b16a4db33ef1a29b687e8, type: 3}

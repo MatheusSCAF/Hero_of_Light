@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(TalkActivationController))]
-[RequireComponent(typeof(BarraDeVidaController))]
 public class PlayerBehaviour : MonoBehaviour
 {
     private Transform myTransform;

@@ -260,12 +260,12 @@ TextureImporter:
       name: characters_4
       rect:
         serializedVersion: 2
-        x: 682
-        y: 165
+        x: 681
+        y: 166
         width: 354
         height: 673
       alignment: 9
-      pivot: {x: 0.42839438, y: 0.33521637}
+      pivot: {x: 0.42461243, y: 0.03084291}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
