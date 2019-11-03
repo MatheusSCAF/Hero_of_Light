@@ -13,6 +13,7 @@ TagManager:
   - Bala
   - Enemy
   - Mana
+  - Health
   layers:
   - Default
   - TransparentFX

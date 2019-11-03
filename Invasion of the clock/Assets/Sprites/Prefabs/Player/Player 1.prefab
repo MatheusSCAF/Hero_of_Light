@@ -1,30 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-703071334190654653
+--- !u!114 &6427925169281128067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911742871210709244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a10c82a3fe35bf44f85c69aee32f4a20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  manaBar: {fileID: 0}
-  takeDamage: 0
-  gameOver: 0
-  shoot: 0
-  dash: 0
---- !u!114 &977094953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904920134855354391}
+  m_GameObject: {fileID: 37684612425705829}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5c85b2299c25064ca979cde318d4c92, type: 3}
@@ -32,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 552637614792524505, guid: db4b05ea797c7dc409c5d6f74b56948a,
     type: 3}
-  shotPoint: {fileID: 6904920133609620499}
-  offset: 0
+  shotPoint: {fileID: 37684613872715105}
+  offset: -90
   startTimeBtwShots: 0.25
---- !u!1001 &6427925171323571834
+--- !u!1001 &460007425900515080
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -45,17 +27,17 @@ PrefabInstance:
     - target: {fileID: 6166477568914153094, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
         type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 6166477568914153146, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 103.9
+      value: 110.13759
       objectReference: {fileID: 0}
     - target: {fileID: 6166477568914153146, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.1
+      value: -17.257702
       objectReference: {fileID: 0}
     - target: {fileID: 6166477568914153146, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
         type: 3}
@@ -188,29 +170,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7877064051259820794, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
-        type: 3}
-      propertyPath: m_Name
-      value: ICon UI
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -4795652836961201669, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28, type: 3}
---- !u!1 &911742871210709244 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6166477568914153094, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
-    type: 3}
-  m_PrefabInstance: {fileID: 6427925171323571834}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6904920134855354391 stripped
+--- !u!1 &37684612425705829 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 497550613642897005, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
     type: 3}
-  m_PrefabInstance: {fileID: 6427925171323571834}
+  m_PrefabInstance: {fileID: 460007425900515080}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6904920133609620499 stripped
+--- !u!4 &37684613872715105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 497550614880193129, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
     type: 3}
-  m_PrefabInstance: {fileID: 6427925171323571834}
+  m_PrefabInstance: {fileID: 460007425900515080}
   m_PrefabAsset: {fileID: 0}

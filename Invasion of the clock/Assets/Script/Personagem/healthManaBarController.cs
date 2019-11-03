@@ -17,7 +17,7 @@ public class healthManaBarController : MonoBehaviour
     public bool shoot;
     public bool dash;
 
-    void Start()
+    void Awake()
     {
         maxHealth = health;
         maxMana = mana;
@@ -26,8 +26,7 @@ public class healthManaBarController : MonoBehaviour
     {
         Converter();
         Activador();
-
-    }
+    }   
     void Converter()
     {
         if (health >= maxHealth)

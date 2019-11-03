@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class damageController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private healthManaBarController vidaEMana;
+    private Rigidbody2D rb;
     void Start()
     {
-        
+        vidaEMana = gameObject.GetComponent<healthManaBarController>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void knockback(Vector2 vetor)
     {
-        
+        rb.AddForce(vetor);
+        vidaEMana.lostLife(10f);
     }
 }
