@@ -59,7 +59,7 @@ public class healthManaBarController : MonoBehaviour
             lostMana(10f);
             shoot = false;
         }
-        else if (dash)
+        if (dash)
         {
             if (mana < 0)
             {
@@ -72,7 +72,7 @@ public class healthManaBarController : MonoBehaviour
             lostMana(30);
             dash = false;
         }
-        else if (takeDamage)
+        if (takeDamage)
         {
             if (health < 0)
             {

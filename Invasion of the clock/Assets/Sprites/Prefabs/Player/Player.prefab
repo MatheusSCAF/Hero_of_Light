@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 6166477568914153147}
   - component: {fileID: 6166477568914153145}
   - component: {fileID: 497550613771269396}
+  - component: {fileID: 1119536801}
   - component: {fileID: 6166477568914153149}
   - component: {fileID: 5504119401982321610}
   - component: {fileID: -4795652836961201669}
@@ -388,6 +389,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.032936573, y: 0.31999993}
   m_Size: {x: 1.3841269, y: 2.245}
   m_Direction: 0
+--- !u!95 &1119536801
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166477568914153094}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bdab179b38a5074390508326f39729d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6166477568914153149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,3 +491,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23cad46ca79f2b449c9dde6d9ceae0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tempoDeInvencibilidade: 2.5
+  knockback: 10

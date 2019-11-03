@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PowerUpBehaviour : MonoBehaviour
 {
-    public PowerUpsController powerUps;
-    public GameObject player;
-    public PlayerBehaviour pBehaviour;
+    [SerializeField] private PowerUpsController powerUps;
+    private GameObject player;
+    private PlayerBehaviour pBehaviour;
 
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<GameObject>();
+        pBehaviour = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>();
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player")
