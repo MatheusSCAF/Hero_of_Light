@@ -3185,6 +3185,11 @@ PrefabInstance:
       propertyPath: manaBar
       value: 
       objectReference: {fileID: 240287159}
+    - target: {fileID: -4795652836961201669, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28,
+        type: 3}
+      propertyPath: takeDamage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75bc7a6f7ddcbb3469d310e9b2a35a28, type: 3}
 --- !u!1001 &6337314298582174516

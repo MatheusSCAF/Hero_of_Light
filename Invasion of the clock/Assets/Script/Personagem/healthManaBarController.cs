@@ -9,13 +9,14 @@ public class healthManaBarController : MonoBehaviour
     [SerializeField] private Image manaBar;
 
     private float maxHealth, maxMana;
-    private float health = 1000, mana = 1000;
+    private float health = 100, mana = 100;
     private float fillHealth, fillMana;
 
     public bool takeDamage;
     public bool gameOver;
     public bool shoot;
     public bool dash;
+ 
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class healthManaBarController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        
         Converter();
         Activador();
     }   

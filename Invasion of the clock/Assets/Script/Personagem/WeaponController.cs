@@ -10,6 +10,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private float offset;
     [SerializeField] private float startTimeBtwShots;
     private float timeBtwShots;
+    healthManaBarController hmC;
 
     void Update()
     {
@@ -23,6 +24,7 @@ public class WeaponController : MonoBehaviour
             {
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
+                hmC.shoot = true;
             }
         }
         else
