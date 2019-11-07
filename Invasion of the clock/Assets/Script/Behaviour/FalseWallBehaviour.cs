@@ -8,10 +8,9 @@ public class FalseWallBehaviour : MonoBehaviour
     private int contador;
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        
-        if (collider.gameObject.tag == "Bala")
-        {
-            
+            if (collider.gameObject.tag == "Bala")
+            {
+            Destroy(collider.gameObject);
             contador++;
             Debug.Log(contador);
             if (contador == 5)

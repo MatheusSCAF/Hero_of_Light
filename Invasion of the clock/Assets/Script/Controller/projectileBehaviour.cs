@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class projectileBehaviour : MonoBehaviour
 {
+    Rigidbody2D rb;
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
 
@@ -15,7 +16,7 @@ public class projectileBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+      transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
     private void DestroyProjectile()
     {

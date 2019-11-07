@@ -98,6 +98,7 @@ MonoBehaviour:
   firePoint: {fileID: 497550614880193129}
   bulletPf: {fileID: 8207971409486948808, guid: 2ebb3516ffa66b343ae3a88a77f743b6,
     type: 3}
+  hmc: {fileID: -4795652836961201669}
 --- !u!114 &497550613642897004
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,8 +10,9 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private float offset;
     [SerializeField] private float startTimeBtwShots;
     private float timeBtwShots;
-    healthManaBarController hmC;
+    [SerializeField]healthManaBarController hmC;
 
+    
     void Update()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
