@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &497550613642897000
 Transform:
   m_ObjectHideFlags: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   puloDuplo: 0
   wallJump: 0
   canonBlaster: 0
-  wJump: {x: 4500, y: 1500}
+  wJump: {x: 7000, y: 5000}
   speed: 10
   jumpForce: 200000
   velocidadeDeSubida: 5

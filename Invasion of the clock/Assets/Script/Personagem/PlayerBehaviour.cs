@@ -128,7 +128,11 @@ public class PlayerBehaviour : MonoBehaviour
             moviment();
             //interação();
             Escada();
-        }    
+        }
+        if (canonBlaster)
+        {
+            canonB.SetActive(true);
+        }
     }
     void OnDrawGizmosSelected()
     {
@@ -246,7 +250,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                rb.AddForce(new Vector2(wJump.x*-axis,wJump.y),ForceMode2D.Force);
+                rb.AddForce(new Vector2(wJump.x*-axis,wJump.y));
                 //rb.velocity = new Vector2(wJump.x*-axis,wJump.y);
             }
         }

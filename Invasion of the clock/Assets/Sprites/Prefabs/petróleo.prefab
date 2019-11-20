@@ -102,7 +102,8 @@ MonoBehaviour:
     m_Bits: 256
   verificaChao: {fileID: 8556298782530627336}
   speed: 5.65
-  minX: 5
+  damage: 3
+  minX: 4
   maxX: 6
   bounds: 1
   invecibilidade: 0

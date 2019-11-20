@@ -9,7 +9,7 @@ public class PetrolleoController : MonoBehaviour
 
     private Rigidbody2D rbInimigo;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float speed,damage;
     [SerializeField] private float minX, maxX;
 
     [SerializeField] private bool bounds = true;
@@ -17,8 +17,14 @@ public class PetrolleoController : MonoBehaviour
     private bool viradoParaDireita = true;
     private bool estaNoChao = false;
 
-    private damageController dano;
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bala")
+        {
+            damage = -1;
+        }  
+    }
     private void Flip()
     {
         if (speed > 0 && !viradoParaDireita || speed < 0 && viradoParaDireita)
@@ -29,7 +35,6 @@ public class PetrolleoController : MonoBehaviour
     }
     private void Awake()
     {
-        dano = GameObject.FindGameObjectWithTag("Player").GetComponent<damageController>();
         rbInimigo = GetComponent<Rigidbody2D>();
         minX = transform.position.x - minX;
         maxX = transform.position.x + maxX;
@@ -49,6 +54,10 @@ public class PetrolleoController : MonoBehaviour
     private void FixedUpdate()
     {
             MovimentaçãoTerreste();
+        if (damage <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
     private void MovimentaçãoTerreste()
     {
