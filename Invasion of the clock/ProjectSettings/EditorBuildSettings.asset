@@ -7,6 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Cenas/Menu.unity
+    guid: 1c7b2bb13eb3e234690428580e3f064e
+  - enabled: 1
+    path: Assets/Cenas/Teste Menu.unity
     guid: 94272ef35489a8848b20a801be659dd9
   - enabled: 1
     path: Assets/Cenas/Teste World.unity
@@ -14,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Cenas/Fase1.unity
     guid: 2860e23b44a1f4f4a92d0f315ecbbc30
+  - enabled: 1
+    path: Assets/Cenas/Creditos.unity
+    guid: 10ccdc9de00339648867eb8bc436911b
   m_configObjects: {}
