@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 1260188595146485669}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.68438, y: 0.68438, z: 0.68438005}
+  m_LocalScale: {x: 0.47326243, y: 0.47326243, z: 0.4732625}
   m_Children:
   - {fileID: 3137250237985153481}
   - {fileID: 4905434427087966396}
@@ -36,10 +36,10 @@ RectTransform:
   m_Father: {fileID: 6429389746788146970}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -399.13498, y: 211.96997}
-  m_SizeDelta: {x: 98.91, y: 98.913}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 49.455017, y: -49.456497}
+  m_SizeDelta: {x: 98.910034, y: 98.912994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7453272447586282975
 CanvasRenderer:
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -704,14 +704,14 @@ RectTransform:
   m_GameObject: {fileID: 8787123960604244448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.91586, y: 0.91586, z: 0.91586}
   m_Children: []
   m_Father: {fileID: 9033794986048415579}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.03, y: -0.84177}
+  m_AnchoredPosition: {x: 1.03, y: 9.4}
   m_SizeDelta: {x: 96.85, y: 96.854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4954186686361004886
@@ -742,9 +742,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 82707731993968007, guid: 11de4d980fa6ff145b2a3a06c6198b9c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 487463985fd770640988178c126717b2, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 1
   m_FillAmount: 1

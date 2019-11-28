@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Cenas/Creditos.unity
     guid: 10ccdc9de00339648867eb8bc436911b
+  - enabled: 1
+    path: Assets/Cenas/OI.unity
+    guid: 674c656eac34f4d419a42ba1f5e57ae8
   m_configObjects: {}

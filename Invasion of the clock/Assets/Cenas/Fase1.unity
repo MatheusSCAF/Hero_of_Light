@@ -489,71 +489,15 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3814856195063900352, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700523571812048648, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9033794986048415579, guid: 4367ab82fea9694408cd3223b33f6b6d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -309
+      value: 49.454956
       objectReference: {fileID: 0}
     - target: {fileID: 9033794986048415579, guid: 4367ab82fea9694408cd3223b33f6b6d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 156
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033794986048415579, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.47326243
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033794986048415579, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.47326243
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033794986048415579, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4732625
-      objectReference: {fileID: 0}
-    - target: {fileID: 4905434427087966396, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4905434427087966396, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.91586
-      objectReference: {fileID: 0}
-    - target: {fileID: 4905434427087966396, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.91586
-      objectReference: {fileID: 0}
-    - target: {fileID: 4905434427087966396, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.91586
-      objectReference: {fileID: 0}
-    - target: {fileID: 889586723146740339, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 487463985fd770640988178c126717b2,
-        type: 3}
-    - target: {fileID: 889586723146740339, guid: 4367ab82fea9694408cd3223b33f6b6d,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
+      value: -49.456482
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4367ab82fea9694408cd3223b33f6b6d, type: 3}
